@@ -35,23 +35,35 @@ public class Customer {
 
     public double deposit(double amt, Date date, String account){
         //my code for deposit double
-        if(account.equals(CHECKING)) checkBalance += amt;
-        else savingBalance += amt;
+        double balance = 0;
+        if(account.equals(CHECKING)) {
+            checkBalance += amt;
+            balance = checkBalance;
+        } else {
+            savingBalance += amt;
+            balance = savingBalance;
+        }
 
         Deposit dp = new Deposit(amt, date, account);
         deposits.add(dp);
 
-        return 0;
+        return balance;
     }
     public double withdraw(double amt, Date date, String account){
         //my code for withdraw double
-        if (checkOverdraft(amt, account) == true) {
-            if(account.equals(CHECKING)) checkBalance -= amt;
-            else savingBalance -= amt;
-            Withdraw wd = new Withdraw(amt, date, account);
-            withdraws.add(wd);
+        double balance = 0;
+        if(account.equals(CHECKING)) {
+            checkBalance -= amt;
+            balance = checkBalance;
+        } else {
+            savingBalance -= amt;
+            balance = savingBalance;
         }
-        return 0;
+
+        Withdraw wd = new Withdraw(amt, date, account);
+        withdraws.add(wd);
+
+        return balance;
     }
     private boolean checkOverdraft(double amt, String account){
         //my code for Overdraft possibility
