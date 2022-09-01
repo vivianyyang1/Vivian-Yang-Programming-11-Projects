@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="328.0" prefWidth="346.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="instructLbl" prefHeight="89.0" prefWidth="306.0" text="Guess if the number will be Higher or Lower than 5 (numbers between 1-9). Press ENTER after typing. " textAlignment="CENTER" wrapText="true">
+      <font>
+         <Font size="11.0" />
+      </font></Label>
+    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="200.0">
+        <TextField fx:id="textfieldGetPlayerMove" alignment="CENTER_RIGHT" onAction="#onAnswerTyped" promptText="Higher or Lower" />
+        <Label fx:id="yourGuessLbl" alignment="CENTER" contentDisplay="CENTER" text="Your Guess: " textAlignment="CENTER" />
+    </HBox>
+    <Button fx:id="btnResult" disable="true" onAction="#onResultButtonClick" text="Result" />
+   <Label fx:id="lblPrintResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="82.0" prefWidth="247.0" text="..." wrapText="true">
+      <font>
+         <Font size="11.0" />
+      </font></Label>
+</VBox>
