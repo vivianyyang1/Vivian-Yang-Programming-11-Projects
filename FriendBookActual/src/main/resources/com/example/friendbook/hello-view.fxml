@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="374.0" prefWidth="404.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.friendbook.FriendController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <TabPane prefHeight="364.0" prefWidth="363.0" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Create Friend">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <VBox prefHeight="338.0" prefWidth="363.0">
+                        <children>
+                        
+                            <Label fx:id="instructCreText" prefHeight="62.0" prefWidth="363.0" text="Name your friend and list one of their defining traits, then click the Create Friend button. " wrapText="true" />
+                           <HBox prefHeight="56.0" prefWidth="363.0">
+                              <children>
+                                 <Label fx:id="lblFName" text="Friend's Name: " />
+                                 <TextField fx:id="txtfieldName" promptText="Name" />
+                              </children>
+                           </HBox>
+                           <HBox prefHeight="54.0" prefWidth="363.0">
+                              <children>
+                                 <Label fx:id="lblFTrait" text="Friend's Trait: " />
+                                 <TextField fx:id="txfieldTrait" promptText="Trait" />
+                              </children>
+                           </HBox>
+                           <HBox layoutX="10.0" layoutY="172.0" prefHeight="46.0" prefWidth="363.0">
+                              <children>
+                                 <Label fx:id="lblFAge" text="Friend's Age: " />
+                                 <TextField fx:id="txfieldAge" promptText="Age" />
+                              </children>
+                           </HBox>
+                            <Button fx:id="btnCreate" onAction="#onCreateButtonClicked" text="Create Friend" />
+                        </children>
+                     </VBox>
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Display Friends">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="306.0" prefWidth="311.0">
+                  <children>
+                     <ListView fx:id="friendsList" layoutX="16.0" layoutY="14.0" onMouseClicked="#displayFriend" prefHeight="278.0" prefWidth="111.0" />
+                     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="34.0" prefHeight="28.0" prefWidth="173.0" text="Friend's Information">
+                        <font>
+                           <Font size="19.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="lblNameDis" layoutX="168.0" layoutY="82.0" text="Name:" />
+                     <Label fx:id="lblTraitsDis" layoutX="168.0" layoutY="115.0" text="Traits: " />
+                     <Label fx:id="displayName" layoutX="213.0" layoutY="81.0" text="..." />
+                     <Label fx:id="displayTraits" layoutX="213.0" layoutY="114.0" text="..." />
+                     <Label fx:id="lblAgeDis" layoutX="168.0" layoutY="150.0" text="Age: " />
+                     <Label fx:id="displayAge" layoutX="213.0" layoutY="149.0" text="..." />
+                     <Button fx:id="btnDelete" layoutX="217.0" layoutY="235.0" mnemonicParsing="false" onAction="#onDeleteButtonClicked" text="Delete Friend" />
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
+</VBox>
