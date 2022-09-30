@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FriendBook" />
+        <module name="FriendBookImproved" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FriendBook" target="17" />
+      <module name="FriendBookImproved" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

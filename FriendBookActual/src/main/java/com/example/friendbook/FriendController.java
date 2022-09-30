@@ -4,6 +4,7 @@
  */
 package com.example.friendbook;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class FriendController {//Fields for items in our scene
     public Button btnCreate;//Create friend button
@@ -29,6 +33,8 @@ public class FriendController {//Fields for items in our scene
     public Label lblAgeDis;
     public Label displayAge;//displays age (display age)
     public Button btnDelete;//Delete friend button
+    public Button btnSave;
+    public Button btnLoad;
 
     @FXML
     public void onCreateButtonClicked(ActionEvent actionEvent) {//Creates "friend" object
@@ -55,5 +61,21 @@ public class FriendController {//Fields for items in our scene
     public void onDeleteButtonClicked(ActionEvent actionEvent) {//Deletes selected "friend" object
         final int selectedFrnd = friendsList.getSelectionModel().getSelectedIndex();
         friendsList.getItems().remove(selectedFrnd);
+    }
+
+    public void onSaveButtonClicked(ActionEvent actionEvent) throws IOException {//Saves all objects in friendsList to file friends.txt
+        ObservableList<Friend> myList = friendsList.getItems();
+        for (Friend f: myList) {
+            f.writeToFile();
+        }
+        friendsList.getItems().clear();
+    }
+
+    public void onLoadButtonClicked(ActionEvent actionEvent) throws IOException {//uses method from CreateFriends to load saved friends from file friends.txt
+        friendsList.getItems().clear();
+        ArrayList<Friend> friends = CreateFriends.createAllFriends("friends.txt");
+        for(Friend f : friends) {
+            friendsList.getItems().add(f);
+        }
     }
 }
